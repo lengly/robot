@@ -458,6 +458,154 @@ MyCode:
 	RETURN
 
 
+Song:
+
+	SPEED 5
+	'偏腿
+	GOSUB StandState
+	
+	MOVE G6A, 100,  76, 145,  93, 100,  
+	MOVE G6D, 115,  79, 143,  93, 128,  
+	MOVE G6B, 100,  30,  80,  ,  ,  
+	MOVE G6C, 101,  46, 100,  ,  ,  
+	WAIT
+	
+	GOSUB StandState
+	
+	MOVE G6A, 115,  79, 143,  93, 128,  
+	MOVE G6D, 100,  82, 141,  93,  97,  
+	MOVE G6B, 101,  46, 100,  ,  ,  
+	MOVE G6C, 102,  16, 100,  ,  ,  
+	WAIT
+	
+	GOSUB StandState
+	
+	
+	MOVE G6A, 100,  76, 145,  93, 100,  
+	MOVE G6D, 115,  79, 143,  93, 128,  
+	MOVE G6B, 100,  30,  80,  ,  ,  
+	MOVE G6C, 101,  46, 100,  ,  ,  
+	WAIT
+	
+	GOSUB StandState
+	
+	MOVE G6A, 115,  79, 143,  93, 128,  
+	MOVE G6D, 100,  82, 141,  93,  97,  
+	MOVE G6B, 101,  46, 100,  ,  ,  
+	MOVE G6C, 102,  16, 100,  ,  ,  
+	WAIT
+	
+	GOSUB StandState
+	DELAY 400
+	
+	'动手
+	MOVE G6A, 100,  76, 145,  93, 100,  
+	MOVE G6D, 100,  76, 145,  93, 100,  
+	MOVE G6B, 100,  30,  80,  ,  ,  
+	MOVE G6C, 101,  63, 136,  ,  ,  
+	WAIT
+	
+	
+	MOVE G6A, 100,  76, 145,  93, 100,  
+	MOVE G6D, 100,  76, 145,  93, 100,  
+	MOVE G6B, 100,  30,  80,  ,  ,  
+	MOVE G6C, 101,  63, 136,  ,  ,  
+	
+	WAIT
+	
+	MOVE G6A, 100,  76, 145,  93, 100,  
+	MOVE G6D, 100,  76, 145,  93, 100,  
+	MOVE G6B, 101,  63, 136,  ,  ,  
+	MOVE G6C, 101,  63, 136,  ,  ,  
+	WAIT
+	
+	DELAY 700
+	
+	MOVE G6A, 100,  75,  ,  94,  99,  
+	MOVE G6D, 100,  76, 145,  93, 100,  
+	MOVE G6B, 102,  17,  86,  ,  ,  
+	MOVE G6C, 101,  63, 136,  ,  ,  
+	WAIT
+	
+	
+	GOSUB StandState
+	
+	DELAY 300
+
+FOR i = 1 TO 2
+		'垫脚
+		MOVE G6A,  50,  76, 145,  93, 100,  
+		MOVE G6D,  50,  76, 145,  93, 100,  
+		MOVE G6B, 100,  30,  80,  ,  ,  
+		MOVE G6C, 100,  30,  80,  ,  ,  
+		WAIT
+		GOSUB StandState
+	NEXT i	
+	DELAY 300
+	
+	
+'===右腿动作
+	'踢腿 准备
+	MOVE G6A, 109,  92, 119,  98,  95,  
+	MOVE G6D,  93,  85, 127,  99, 103,  
+	MOVE G6B, 100,  30,  80,  ,  ,  
+	MOVE G6C, 100,  30,  80,  ,  ,  
+	WAIT
+	SPEED 15
+	'踢腿 抬右腿
+	MOVE G6A, 109,  53, 174,  98, 115,  
+	MOVE G6D,  99,  80,  36, 159,  90,  
+	MOVE G6B, 111, 184,  26,  ,  ,  
+	MOVE G6C, 104,  10, 175,  ,  ,  
+	WAIT
+	DELAY 400
+	'踢腿 放右腿
+	MOVE G6A, 109,  53, 174,  98, 115,  
+	MOVE G6D, 100,  80, 110, 117,  90,  
+	MOVE G6B, 106, 106,  13,  ,  ,  
+	MOVE G6C, 107,  86,  10,  ,  ,  
+	WAIT
+	DELAY 500
+	
+	GOSUB StandState
+	DELAY 1000
+
+'===左腿运动
+'踢腿 准备
+	MOVE G6D, 109,  92, 119,  93,  95,  
+	MOVE G6A,  93,  85, 127,  99, 103,  
+	MOVE G6C, 100,  30,  80,  ,  ,  
+	MOVE G6B, 100,  30,  80,  ,  ,  
+	WAIT
+	SPEED 15
+	'踢腿 抬左腿
+	MOVE G6D, 109,  53, 174,  93, 118,  
+	MOVE G6A,  99,  80,  36, 159,  90,  
+	MOVE G6C, 111, 184,  26,  ,  ,  
+	MOVE G6B, 104,  10, 175,  ,  ,  
+	WAIT
+	DELAY 400
+	
+	'踢腿 放左腿
+	MOVE G6D, 109,  53, 174,  93, 118,  
+	MOVE G6A, 100,  80, 110, 117,  90,  
+	MOVE G6C, 106, 106,  13,  ,  ,  
+	MOVE G6B, 107,  86,  10,  ,  ,  
+	WAIT
+	DELAY 500
+	
+	SPEED 5
+	GOSUB StandState
+
+	
+	
+
+
+
+RETURN
+
+
+
 
 MAIN: '
 
@@ -470,7 +618,7 @@ MAIN: '
     ERX 4800,A,MAIN				'通过RX端口接收RS232信号;4800:端口速度；A:端口号
     A_old = A
     '根据变量的值条件转移,A=0跳转到MAIN，A=1跳转到'...
-    ON A GOTO MAIN,KEY1,KEY2,KEY3',KEY4,KEY5,KEY6,KEY7,KEY8,KEY9,KEY10,KEY11,KEY12,KEY13,KEY14,KEY15,KEY16,KEY17,KEY18 ,KEY19,KEY20,KEY21,KEY22,KEY23,KEY24,KEY25',KEY26,KEY27,KEY28 ,KEY29,KEY30,KEY31,KEY32
+    ON A GOTO MAIN,KEY1,KEY2,KEY3,KEY4',KEY5,KEY6,KEY7,KEY8,KEY9,KEY10,KEY11,KEY12,KEY13,KEY14,KEY15,KEY16,KEY17,KEY18 ,KEY19,KEY20,KEY21,KEY22,KEY23,KEY24,KEY25',KEY26,KEY27,KEY28 ,KEY29,KEY30,KEY31,KEY32
     '
     '    GOTO MAIN					跳转到MAIN	
     '*******************************************
@@ -502,6 +650,15 @@ KEY3:
 
 
     '************************************************
+    
+KEY4:
+
+	GOSUB Song
+	'GOSUB now
+
+
+    GOTO RX_EXIT
+
 
 RX_EXIT:
 
