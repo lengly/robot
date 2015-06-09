@@ -215,6 +215,55 @@ Song:
 		GOSUB StandState
 	NEXT i	
 	DELAY 300
+now:
+	
+	'扭
+	FOR i = 1 TO 3
+		MOVE G6A,  82, 113, 133,  65, 120,  
+		MOVE G6D,  92,  55, 127, 133, 107,  
+		IF i = 1 THEN
+			MOVE G6B,  66,  17,  53,  ,  ,  
+			MOVE G6C,  70,  15,  56,  ,  ,  
+		ELSE
+			MOVE G6B, 100, 101, 100,  ,  ,  
+			MOVE G6C, 100, 189,  98,  ,  ,  			
+		ENDIF
+		WAIT
+		MOVE G6D,  82, 113, 133,  65, 120,  
+		MOVE G6A,  92,  55, 127, 133, 107,  
+		IF i = 1 THEN
+			MOVE G6B,  66,  17,  53,  ,  ,  
+			MOVE G6C,  70,  15,  56,  ,  ,  
+		ELSE
+			MOVE G6B, 100, 101, 100,  ,  ,  
+			MOVE G6C, 100, 189,  98,  ,  ,  			
+		ENDIF
+		WAIT
+	NEXT i
+
+'TODO
+SPEED 1
+MOVE G6A,  87, 124,  79, 108, 115,  
+MOVE G6D,  85, 114,  82, 119, 113,  
+MOVE G6B,  15, 177, 189,  ,  ,  
+MOVE G6C, 158,  10,  26,  ,  ,  
+WAIT
+MOVE G6A,  86, 155,  42, 108,  ,  
+MOVE G6D,  85, 136,  43, 129, 119,  
+MOVE G6B, 158,  10,  26,  ,  ,  
+MOVE G6C,  15, 177, 189,  ,  ,  
+WAIT
+MOVE G6A,  55, 164,  26, 109, 141,  
+MOVE G6D,  55, 164,  26, 109, 141,  
+MOVE G6B, 186,  89,  40,  ,  ,  
+MOVE G6C, 186,  89,  40,  ,  ,  
+WAIT
+
+	
+	
+	
+	
+	RETURN
 	
 
 	'===右腿动作
@@ -457,7 +506,7 @@ Song:
 	DELAY 300
 	'起立
 	GOSUB MyBackStandUp
-now:
+
 	'''侧滚翻
 	'举手 蹲
 	SPEED 5
