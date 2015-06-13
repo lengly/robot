@@ -131,6 +131,39 @@ MyBackStandUp:'前倒自动站立
 
     RETURN
 
+MyFrontStandUp:
+    SPEED 15
+    MOVE G6A,100, 15,  70, 140, 100,
+    MOVE G6D,100, 15,  70, 140, 100,
+    MOVE G6B,20,  140,  15
+    MOVE G6C,20,  140,  15
+    WAIT
+
+    SPEED 12
+    MOVE G6A,100, 136,  35, 80, 100,
+    MOVE G6D,100, 136,  35, 80, 100,
+    MOVE G6B,20,  30,  80
+    MOVE G6C,20,  30,  80
+    WAIT
+
+    SPEED 12
+    MOVE G6A,100, 165,  70, 30, 100,
+    MOVE G6D,100, 165,  70, 30, 100,
+    MOVE G6B,30,  20,  95
+    MOVE G6C,30,  20,  95
+    WAIT
+
+    SPEED 10
+    MOVE G6A,100, 165,  45, 90, 100,
+    MOVE G6D,100, 165,  45, 90, 100,
+    MOVE G6B,130,  50,  60
+    MOVE G6C,130,  50,  60
+    WAIT
+
+    SPEED 10
+    GOSUB stand_pose
+
+    RETURN
 Song:
 
 	SPEED 5
@@ -241,8 +274,6 @@ Song:
 		WAIT
 	NEXT i
 
-'TODO
-
 	SPEED 5
 	MOVE G6A,  87, 124,  79, 108, 115,  
 	MOVE G6D,  85, 114,  82, 119, 113,  
@@ -338,7 +369,6 @@ Song:
 	MOVE G6B, 105, 182, 140,  ,  ,120
 	MOVE G6C, 107, 110, 104,  ,  ,  120
 
-	
 	'===右腿动作
 	'踢腿 准备
 	MOVE G6A, 109,  92, 119,  98,  95,  
@@ -362,21 +392,24 @@ Song:
 	WAIT
 	DELAY 300
 	'踢腿 踢右腿
-	MOVE G6A, 109,  53, 174,  98, 115,  
-	MOVE G6D, 109,  49, 185, 160, 186,  
-	MOVE G6B, 190, 187,  64,  ,  ,  
-	MOVE G6C, 190, 187,  64,  ,  ,  
+	MOVE G6A, 112,  90, 125, 106,  99,  
+	MOVE G6D, 122,  55,  20, 140, 117,  
+	MOVE G6B, 186, 155,  13,  ,  ,  
+	MOVE G6C, 100, 144,  10,  ,  ,  
+	WAIT
+ 
 	WAIT
 	DELAY 300
 	'踢腿 准备
-	MOVE G6A, 114,  92, 119,  98,  108,  
-	MOVE G6D,  93,  85, 127,  99, 103,  
-	MOVE G6B, 100,  30,  80,  ,  ,  
-	MOVE G6C, 100,  30,  80,  ,  ,  
+	MOVE G6A, 110,  93, 108, 113,  92,  
+	MOVE G6D, 90, 105,  91, 117, 105,  
+	MOVE G6B, 187, 149,  51,  ,  ,  
+	MOVE G6C, 185, 143,  44,  ,  ,  
 	WAIT
+
 	DELAY 300
 	SPEED 5
-	'===左腿动作
+
 	GOSUB StandState
 	DELAY 300
 	FOR i = 1 TO 2
@@ -389,58 +422,21 @@ Song:
 		GOSUB StandState
 	NEXT i
 
-	DELAY 300
-	'踢腿 准备
-	MOVE G6D, 109,  92, 119,  93,  95,  
-	MOVE G6A,  93,  85, 127,  99, 103,  
-	MOVE G6C, 100,  30,  80,  ,  ,  
-	MOVE G6B, 100,  30,  80,  ,  ,  
-	WAIT
-	SPEED 15
-	'踢腿 抬左腿
-	MOVE G6D, 109,  53, 174,  93, 118,  
-	MOVE G6A,  99,  80,  36, 159,  90,  
-	MOVE G6C, 111, 184,  26,  ,  ,  
-	MOVE G6B, 104,  10, 175,  ,  ,  
-	WAIT
-	DELAY 300
-	'踢腿 放左腿
-	MOVE G6D, 109,  53, 174,  93, 118,  
-	MOVE G6A, 100,  80, 110, 117,  90,  
-	MOVE G6C, 106, 106,  13,  ,  ,  
-	MOVE G6B, 107,  86,  10,  ,  ,  
-	WAIT
-	DELAY 300
-	'踢腿 踢左腿
-	MOVE G6D, 109,  53, 174,  93, 120,  
-	MOVE G6A, 109,  49, 185, 160, 186,  
-	MOVE G6C, 190, 187,  64,  ,  ,  
-	MOVE G6B, 190, 187,  64,  ,  ,  
-	WAIT
-	DELAY 300
-	'踢腿 准备
-	MOVE G6D, 114,  92, 119,  105,  108,  
-	MOVE G6A,  93,  85, 127,  105,  103,  
-	MOVE G6C, 100,  30,  80,  ,  ,  
-	MOVE G6B, 100,  30,  80,  ,  ,  
-	WAIT
-	DELAY 300
-	GOSUB StandState
-
-	'稍微后仰
-	FOR k = 1 TO 3
-	MOVE G6A, 100,  93, 122,  69, 100,  
-	MOVE G6D, 100,  91, 123,  70, 100,  
-	MOVE G6B, 148,  24,  94,  ,  ,  
-	MOVE G6C, 143,  41,  80,  ,  ,  
-	WAIT
-	MOVE G6A, 100,  93, 122,  69, 100,  
-	MOVE G6D, 100,  91, 123,  70, 100,  
-	MOVE G6B, 144,  32,  53,  ,  ,  
-	MOVE G6C, 146,  47,  47,  ,  ,  
-	WAIT
-	NEXT k
-
+	'身体前倾
+	FOR i = 1 TO 3
+		'左手下  右手上
+		MOVE G6A, 100,  28, 175, 159, 100,  
+		MOVE G6D, 100,  28, 175, 159, 100,  
+		MOVE G6B, 185,  20,  85,  ,  ,  
+		MOVE G6C, 145,  20,  85,  ,  ,  
+		WAIT
+		'左手上  右手下
+		MOVE G6A, 100,  28, 175, 159, 100,  
+		MOVE G6D, 100,  28, 175, 159, 100,  
+		MOVE G6B, 145,  20,  85,  ,  ,  
+		MOVE G6C, 185,  20,  85,  ,  ,  
+		WAIT
+	NEXT i	
 
 	'洗刷刷
 	
@@ -482,22 +478,6 @@ Song:
 	WAIT
 	NEXT k
 	
-	SPEED 15
-	'身体前倾
-	FOR i = 1 TO 3
-		'左手下  右手上
-		MOVE G6A, 100,  28, 175, 159, 100,  
-		MOVE G6D, 100,  28, 175, 159, 100,  
-		MOVE G6B, 185,  10,  65,  ,  ,  
-		MOVE G6C, 145,  10,  65,  ,  ,  
-		WAIT
-		'左手上  右手下
-		MOVE G6A, 100,  28, 175, 159, 100,  
-		MOVE G6D, 100,  28, 175, 159, 100,  
-		MOVE G6B, 145,  10,  65,  ,  ,  
-		MOVE G6C, 185,  10,  65,  ,  ,  
-		WAIT
-	NEXT i	
 	'tutu
 	'双手外
 	MOVE G6A, 100,  76, 145,  93, 100,  
@@ -540,9 +520,9 @@ Song:
 	MOVE G6D,  45,  57, 171,  87, 166,  
 	MOVE G6B,  96, 146,  94,  ,  ,  
 	MOVE G6C,  46, 170, 185,  ,  ,
-
 	WAIT
 	SPEED 8
+	DELAY 300
 	'双手大摆动
 	FOR i = 1 TO 2
 		MOVE G6D, 109, 163,  25, 126,  81,  
@@ -556,23 +536,12 @@ Song:
 		MOVE G6C,  12, 189,  89,  ,  ,  
 		WAIT
 	NEXT i
-	SPEED 15   
-	FOR k=1 TO 2
-		MOVE G6A, 109, 163,  25, 126,  81,  
-		MOVE G6D,  45,  57, 171,  87, 166,
-		MOVE G6B,  96, 146,  94,  ,  ,  
-		MOVE G6C,  46, 170, 185,  ,  ,
-	
-		WAIT  
-		MOVE G6D, 109, 163,  25, 126,  81,  
-		MOVE G6A,  45,  57, 171,  87, 166,  
-		MOVE G6B,  96, 146,  94,  ,  ,  
-		MOVE G6C,  46, 170, 185,  ,  ,
-		WAIT
-	NEXT k
+	SPEED 10
 	DELAY 300
+
 	GOSUB StandState
-	
+
+
 	'俯卧撑
 	SPEED 20
 	FOR i = 1 TO 3
@@ -660,7 +629,7 @@ Song:
 	DELAY 300
 	'起立
 	SPEED 5
-	
+
 	FOR i = 1 TO 2
 	MOVE G6A, 100,  76, 145,  33, 100,  
 	MOVE G6D, 100,  76, 145,  93, 100,  
@@ -712,7 +681,7 @@ Song:
 	MOVE G6C, 190, 112,  20,  ,  ,  
 	WAIT
 	NEXT i
-
+	DELAY 300
 	GOSUB MyBackStandUp
 
 
@@ -776,6 +745,7 @@ Song:
 		WAIT
 	NEXT i
 	DELAY 300
+
 	'摆腿
 	FOR i = 1 TO 5
 		MOVE G6A,  97, 154,  26, 132, 186,  
@@ -802,8 +772,8 @@ Song:
 			DELAY 500
 		ENDIF
 	NEXT i
-	
-	SPEED 15
+	DELAY 1000
+	SPEED 10
 	'回旋 脚落地 起身
 	MOVE G6A, 97, 166, 187, 159, 89,  
 	MOVE G6D, 97, 166, 187, 159, 108,  
@@ -926,33 +896,33 @@ Song:
 		WAIT
 		DELAY 300
 	NEXT i
-now:
+
 	GOSUB StandState
 	SPEED 10
 	'波浪手
 	'摆左手
 	FOR i = 1 TO 2
 		'1
-		MOVE G6A,  59,  67, 152,  90, 142,  
-		MOVE G6D,  94, 130,  71, 110,  99,  
-		MOVE G6B,  99, 145,  62,  ,  ,  
-		MOVE G6C, 101, 101, 101,  ,  ,  
+		MOVE G6A,  59,  67, 152,  90, 142, 10
+		MOVE G6D,  94, 130,  71, 110,  99, 10
+		MOVE G6B,  99, 145,  62,  ,  , 10
+		MOVE G6C, 101, 101, 101,  ,  , 10
 		WAIT
 		'2
-		MOVE G6A,  59,  67, 152,  90, 142,  
-		MOVE G6D,  94, 130,  71, 110,  99,  
-		MOVE G6B,  99, 180, 190,  ,  ,  
-		MOVE G6C, 101, 101, 101,  ,  ,  
+		MOVE G6A,  59,  67, 152,  90, 142, 10 
+		MOVE G6D,  94, 130,  71, 110,  99, 10
+		MOVE G6B,  99, 180, 190,  ,  ,  10
+		MOVE G6C, 101, 101, 101,  ,  ,  10
 		WAIT
 		'3
-		MOVE G6A,  59,  67, 152,  90, 142,  
-		MOVE G6D,  94, 130,  71, 110,  99,  
-		MOVE G6B,  99,  90, 173,  ,  ,  
-		MOVE G6C, 101, 101, 101,  ,  ,  
+		MOVE G6A,  59,  67, 152,  90, 142, 10  
+		MOVE G6D,  94, 130,  71, 110,  99, 10
+		MOVE G6B,  99,  90, 173,  ,  , 10
+		MOVE G6C, 101, 101, 101,  ,  , 10
 		WAIT
 		'4
-		MOVE G6A,  59,  67, 152,  90, 142,  
-		MOVE G6D,  94, 130,  71, 110,  99,  
+		MOVE G6A,  59,  67, 152,  90, 142, 10 
+		MOVE G6D,  94, 130,  71, 110,  99, 10
 		MOVE G6B,  99,  71,  62,  ,  ,  
 		MOVE G6C, 101, 101, 101,  ,  ,  
 		WAIT
@@ -960,35 +930,229 @@ now:
 	'摆右手
 	FOR i = 1 TO 2
 		'1
-		MOVE G6D,  59,  67, 152,  90, 142,  
-		MOVE G6A,  94, 130,  71, 110,  99,  
-		MOVE G6C,  99, 145,  62,  ,  ,  
-		MOVE G6B, 101, 101, 101,  ,  ,  
+		MOVE G6D,  59,  67, 152,  90, 142,  190
+		MOVE G6A,  94, 130,  71, 110,  99,  190
+		MOVE G6C,  99, 145,  62,  ,  ,  190
+		MOVE G6B, 101, 101, 101,  ,  ,  190
 		WAIT
 		'2
-		MOVE G6D,  59,  67, 152,  90, 142,  
-		MOVE G6A,  94, 130,  71, 110,  99,  
-		MOVE G6C,  99, 180, 190,  ,  ,  
-		MOVE G6B, 101, 101, 101,  ,  ,  
+		MOVE G6D,  59,  67, 152,  90, 142, 190 
+		MOVE G6A,  94, 130,  71, 110,  99, 190
+		MOVE G6C,  99, 180, 190,  ,  ,  190
+		MOVE G6B, 101, 101, 101,  ,  ,  190
 		WAIT
 		'3
-		MOVE G6D,  59,  67, 152,  90, 142,  
-		MOVE G6A,  94, 130,  71, 110,  99,  
-		MOVE G6C,  99,  90, 173,  ,  ,  
-		MOVE G6B, 101, 101, 101,  ,  ,  
+		MOVE G6D,  59,  67, 152,  90, 142, 190 
+		MOVE G6A,  94, 130,  71, 110,  99, 190
+		MOVE G6C,  99,  90, 173,  ,  , 190
+		MOVE G6B, 101, 101, 101,  ,  , 190
 		WAIT
 		'4
-		MOVE G6D,  59,  67, 152,  90, 142,  
-		MOVE G6A,  94, 130,  71, 110,  99,  
-		MOVE G6C,  99,  71,  62,  ,  ,  
-		MOVE G6B, 101, 101, 101,  ,  ,  
+		MOVE G6D,  59,  67, 152,  90, 142, 190 
+		MOVE G6A,  94, 130,  71, 110,  99, 190
+		MOVE G6C,  99,  71,  62,  ,  , 190
+		MOVE G6B, 101, 101, 101,  ,  , 190
+		WAIT
+	NEXT i
+	DELAY 1200
+	'跺脚
+	SPEED 20
+	FOR i=1 TO 20
+		MOVE G6A, 107, 110,  99,  92, 107, 100  
+		MOVE G6D, 101, 104,  82, 116,  92, 100
+		MOVE G6B,  10,  32,  81,  ,  , 100
+		MOVE G6C,  10,  32,  81,  ,  , 100
+		WAIT
+		MOVE G6D, 107, 110,  99,  92, 107,  
+		MOVE G6A, 101, 104,  82, 116,  92,  
+		MOVE G6B,  10,  32,  81,  ,  ,  
+		MOVE G6C,  10,  32,  81,  ,  ,  
+		WAIT
+	NEXT i
+
+	'双手撑地  踢腿
+	FOR i = 1 TO 3
+		'1
+		MOVE G6D, 105, 166,  20,  95,  100,  10
+		MOVE G6A, 101,  97, 156,  53,  100, 10
+		MOVE G6B,  10,  32,  81,  ,  ,  10
+		MOVE G6C,  10,  32,  81,  ,  ,  10
+		WAIT
+		'2
+		MOVE G6D, 111,  81, 183, 134,  100, 100  
+		MOVE G6A, 101,  97, 156,  53,  100, 100
+		MOVE G6B,  10,  32,  81,  ,  , 100
+		MOVE G6C,  10,  32,  81,  ,  , 100
+		WAIT
+		'3
+		MOVE G6D, 111,  81, 181, 136, 170, 190  
+		MOVE G6A, 101,  97, 156,  53, 100, 190
+		MOVE G6B,  10,  32,  81,  ,  , 190
+		MOVE G6C,  10,  32,  81,  ,  , 190
+		WAIT
+	NEXT i
+	FOR i = 1 TO 3
+		'1
+		MOVE G6A, 105, 166,  20,  95, 100,  10
+		MOVE G6D, 101,  97, 156,  53, 100, 10
+		MOVE G6B,  10,  32,  81,  ,  ,  10
+		MOVE G6C,  10,  32,  81,  ,  ,  10
+		WAIT
+		'2
+		MOVE G6A, 111,  81, 183, 134, 100, 100  
+		MOVE G6D, 101,  97, 156,  53, 100, 100
+		MOVE G6B,  10,  32,  81,  ,  , 100
+		MOVE G6C,  10,  32,  81,  ,  , 100
+		WAIT
+		'3
+		MOVE G6A, 111,  81, 181, 136, 170, 190  
+		MOVE G6D, 101,  97, 156,  53, 100, 190
+		MOVE G6B,  10,  32,  81,  ,  , 190
+		MOVE G6C,  10,  32,  81,  ,  , 190
+		WAIT
+	NEXT i
+
+	'手打脚 脚打地
+	MOVE G6A, 101, 100, 122, 119,  99, 100
+	MOVE G6D, 101, 100, 122, 119,  99, 100
+	MOVE G6B,  37,  80, 104,  ,  , 100
+	MOVE G6C,  37,  80, 104,  ,  , 100
+	WAIT
+	DELAY 1000
+	'右侧
+	FOR i = 1 TO 4	
+		'准备敲 0
+		MOVE G6A, 100, 165, 184, 127,  96,  
+		MOVE G6D, 100, 165, 184, 127,  96,  
+		MOVE G6B, 165,  10,  67,  ,  ,  
+		MOVE G6C, 190,  10,  72,  ,  ,  
+		WAIT
+		'1
+		MOVE G6A, 100, 165, 184, 127,  96,  
+		MOVE G6D, 100, 165, 184, 127,  96,  
+		MOVE G6B, 165,  10,  67,  ,  ,  
+		MOVE G6C, 145,  10,  72,  ,  ,  
+		WAIT
+		'2
+		MOVE G6A, 100, 165, 184, 127,  96,  
+		MOVE G6D, 100, 165, 184,  92,  96,  
+		MOVE G6B, 165,  10,  67,  ,  ,  
+		MOVE G6C, 145,  10,  72,  ,  ,  
+		WAIT
+		'1
+		MOVE G6A, 100, 165, 184, 127,  96,  
+		MOVE G6D, 100, 165, 184, 127,  96,  
+		MOVE G6B, 165,  10,  67,  ,  ,  
+		MOVE G6C, 145,  10,  72,  ,  ,  
+		WAIT
+	NEXT i
+	SPEED 10
+	FOR i = 1 TO 2
+		'0
+		MOVE G6A, 100, 165, 184, 127,  96,  
+		MOVE G6D, 100, 165, 184, 127,  96,  
+		MOVE G6B, 165,  10,  67,  ,  ,  
+		MOVE G6C, 190,  10,  72,  ,  ,  
+		WAIT
+		'拍手
+		MOVE G6A, 100, 165, 184, 127,  96,  
+		MOVE G6D, 100, 165, 184, 127,  96,  
+		MOVE G6B, 146,  10,  42,  ,  ,  
+		MOVE G6C, 151,  10,  41,  ,  ,  
+	NEXT i
+	DELAY 500
+	SPEED 20
+	'左侧
+	FOR i = 1 TO 4
+		'准备敲 0
+		MOVE G6D, 100, 165, 184, 127,  96,  
+		MOVE G6A, 100, 165, 184, 127,  96,  
+		MOVE G6C, 165,  10,  67,  ,  ,  
+		MOVE G6B, 190,  10,  72,  ,  ,  
+		WAIT
+		'1
+		MOVE G6D, 100, 165, 184, 127,  96,  
+		MOVE G6A, 100, 165, 184, 127,  96,  
+		MOVE G6C, 165,  10,  67,  ,  ,  
+		MOVE G6B, 145,  10,  72,  ,  ,  
+		WAIT
+		'2
+		MOVE G6D, 100, 165, 184, 127,  96,  
+		MOVE G6A, 100, 165, 184,  92,  96,  
+		MOVE G6C, 165,  10,  67,  ,  ,  
+		MOVE G6B, 145,  10,  72,  ,  ,  
+		WAIT
+		'1
+		MOVE G6D, 100, 165, 184, 127,  96,  
+		MOVE G6A, 100, 165, 184, 127,  96,  
+		MOVE G6C, 165,  10,  67,  ,  ,  
+		MOVE G6B, 145,  10,  72,  ,  ,  
+		WAIT
+	NEXT i
+
+	SPEED 10
+	FOR i = 1 TO 7
+		MOVE G6A, 102, 164, 179, 100, 130,  
+		MOVE G6D, 102, 164, 179, 100, 130,
+		MOVE G6B, 185,  93,  78,  ,  ,  
+		MOVE G6C, 185,  93,  78,  ,  ,  
+		WAIT
+		MOVE G6A,  90, 145, 190, 160, 180,  
+		MOVE G6D,  90, 145, 190, 160, 180,  
+		MOVE G6B, 184,  14,  46,  ,  ,  
+		MOVE G6C, 188,  20,  37,  ,  ,  
 		WAIT
 	NEXT i
 	
+	GOSUB MyFrontStandUp
+now:
+	GOSUB standstate
+	SPEED 3
+	FOR i=1 TO 3	
+		MOVE G6A, 103, 107, 118,  73,  90,  
+		MOVE G6D,  89, 112, 115,  71, 116,  
+		MOVE G6B, 102,  37,  81,  ,  ,  
+		MOVE G6C,  72,  32,  81,  ,  ,  
+		WAIT
+		MOVE G6A, 109,  59, 121, 146,  93,  
+		MOVE G6D,  94,  62, 116, 142, 103,  
+		MOVE G6B, 102,  31,  80,  ,  ,  
+		MOVE G6C, 102,  33,  81,  ,  ,  
+		WAIT
+		GOSUB standstate
+		MOVE G6D, 109,  59, 121, 146,  93,  
+		MOVE G6A,  94,  62, 116, 142, 103,  
+		MOVE G6B, 102,  31,  80,  ,  ,  
+		MOVE G6C, 102,  33,  81,  ,  ,  
+		WAIT
+		MOVE G6D, 103, 107, 118,  73,  90,  
+		MOVE G6A,  89, 112, 115,  71, 116,  
+		MOVE G6B, 102,  37,  81,  ,  ,  
+		MOVE G6C,  72,  32,  81,  ,  ,  
+		WAIT
+	NEXT i
+
+	MOVE G6A, 100,  76, 145,  93, 100,  
+	MOVE G6D, 100,  76, 145,  93, 100,  
+	MOVE G6B, 105, 151, 139,  ,  ,  
+	MOVE G6C, 105, 151, 139,  ,  ,  
+	WAIT
+	MOVE G6A, 101,  49, 144, 161,  99,  
+	MOVE G6D, 100,  52, 143, 159,  99,  
+	MOVE G6B, 105, 152, 140,  ,  ,  
+	MOVE G6C, 105, 151, 139,  ,  ,  
+	WAIT
+	MOVE G6A, 100,  76, 145,  93, 100,  
+	MOVE G6D, 100,  76, 145,  93, 100,  
+	MOVE G6B, 105, 151, 139,  ,  ,  
+	MOVE G6C, 105, 151, 139,  ,  ,  
+	WAIT
+
+	GOSUB standstate
+
+	DELAY 10000
 	
-	
-	
-	
+
 
 RETURN
 
